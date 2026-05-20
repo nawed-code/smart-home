@@ -36,3 +36,18 @@ div>img{
     height: 60px;
 }
 
+@keyframes glow {
+    0%{
+        box-shadow: 0 0 5px yellow;
+    }
+    50%{
+        box-shadow: 0 0 25px yellow;
+    }
+    100%{
+        box-shadow: 0 0 5px yellow;
+    }
+    
+}
+.lamp_on{
+    animation: glow 1s infinite;
+}
