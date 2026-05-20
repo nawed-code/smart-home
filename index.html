@@ -8,44 +8,81 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <header>
-      <h2>Bonjour Nawed!</h2>
-      <figcaption id="header-right">
-        <a href="#"><img src="image/bell-icon.jpg" alt="bell-icon"></a>
-        <a href="#"> <img src="image/profile1.jpeg" alt="user-profile" width="70px" height="70px"> </a>
-      </figcaption>
-    </header>
-    <div id="dashboard">
+    <aside id="side-bar">
+      <section id="smart-home">
+        <img src="image/smart-house.png" alt="home-icon" >
+        <h5>SmartHome</h5>
+      </section>
+      <section id="menu">
+        <h5>Tableau de board</h5>
+        <ul>
+          <li> <a href="#lamp_range">Eclairage</a></li>
+          <li>Musique</li>
+          <li>Température</li>
+          <li>Sécurité</li>
+          <li>Caméra</li>
+          <li>Scénarios</li>
+          <li>Paramètres</li>
+        </ul>
+      </section>
+      <section di="mode">
+        <button>mode claire</button>
+      </section>
+    </aside>
+    <div id="container">
 
-      <div class="card-lamp">
-        <img src="image/lamp.webp" alt="lamp">
-        <h2>Lampe du salon</h2>
-        <h5>Salon</h5>
-        <button>ON</button>
+      <header>
+        <h2>Bonjour Nawed!</h2>
+        <figcaption id="header-right">
+          <a href="#"><img src="image/bell-icon.jpg" alt="bell-icon"></a>
+          <a href="#"> <img src="image/profile1.jpeg" alt="user-profile" width="70px" height="70px"> </a>
+        </figcaption>
+      </header>
+      <div id="dashboard">
+
+        <div class="card-lamp">
+          <img src="image/lamp.webp" alt="lamp">
+          <h2>Lampe du salon</h2>
+          <h5>Salon</h5>
+          <button id="lamp">ON</button>
+          <h5>Intensité</h5>
+          <input type="range" value="70%" min="0" max="100%" id="lamp-range">
+        </div>
+
+        <div class="card-music">
+          <img src="image/musique.svg" alt="music-icon">
+          <h2>Musique</h2>
+          <h5>Salon</h5>
+          <button>ON</button>
+          <section id="music">
+            <img src="image/music-album.jpg" alt="music-album">
+            <h5>Relax Playlist</5>
+          </section>
+          <button id="play">Play</button>
+          <audio controls>
+            <source src="" type="audio/mp3">
+          </audio>
+        </div>
+
+        <div class="card-temp">
+          <img src="image/thermometer.png" alt="thermometer-icon">
+          <h2>Température</h2>
+          <h5>Chambre</h5>
+          <button>ON</button>
+          <h5>Intensité</h5>
+          <input type="range" value="70%" min="0" max="100%" id="temp-range">
+        </div>
+
+        <div class="card-security">
+          <img src="image/securite.png" alt="security-icon">
+          <h2>Sécurité</h2>
+          <h5>Maison</h5>
+          <button>ON</button>
+        </div>
+
       </div>
-
-      <div class="card-music">
-        <img src="image/musique.svg" alt="music-icon">
-        <h2>Musique</h2>
-        <h5>Salon</h5>
-        <button>ON</button>
-      </div>
-
-      <div class="card-temp">
-        <img src="image/thermometer.png" alt="thermometer-icon">
-        <h2>Température</h2>
-        <h5>Chambre</h5>
-        <button>ON</button>
-      </div>
-
-      <div class="card-security">
-        <img src="image/securite.png" alt="security-icon">
-        <h2>Sécurité</h2>
-        <h5>Maison</h5>
-        <button>ON</button>
-      </div>
-
     </div>
+    
   </body>
 
 </html>
