@@ -1,5 +1,5 @@
 
-<!DOCTYPE htme>
+<!DOCTYPE html>
 <html lang="eng">
   <head>
     <title>smart-home</title>
@@ -10,29 +10,39 @@
   <body>
     <header>
       <h2>Bonjour Nawed!</h2>
-      <p>Voici ce qui se passe dans votre maison aujourd'hui.</p>
-      <figcaption id="user">
-        <img src="image/profile.jpeg" alt="user-profile">
-        <img src="image/bell-icon.jpg" alt="bell-icon">
+      <figcaption id="header-right">
+        <a href="#"><img src="image/bell-icon.jpg" alt="bell-icon"></a>
+        <a href="#"> <img src="image/profile1.jpeg" alt="user-profile" width="70px" height="70px"> </a>
       </figcaption>
     </header>
-    <div class="dashboard">
+    <div id="dashboard">
 
-      <div class="card lamp">
-        <h2>Lampe</h2>
+      <div class="card-lamp">
+        <img src="image/lamp.webp" alt="lamp">
+        <h2>Lampe du salon</h2>
+        <h5>Salon</h5>
         <button>ON</button>
       </div>
 
-      <div class="card music">
+      <div class="card-music">
+        <img src="image/musique.svg" alt="music-icon">
         <h2>Musique</h2>
+        <h5>Salon</h5>
+        <button>ON</button>
       </div>
 
-      <div class="card temp">
+      <div class="card-temp">
+        <img src="image/thermometer.png" alt="thermometer-icon">
         <h2>Température</h2>
+        <h5>Chambre</h5>
+        <button>ON</button>
       </div>
 
-      <div class="card security">
+      <div class="card-security">
+        <img src="image/securite.png" alt="security-icon">
         <h2>Sécurité</h2>
+        <h5>Maison</h5>
+        <button>ON</button>
       </div>
 
     </div>
