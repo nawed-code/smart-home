@@ -57,38 +57,65 @@ div>img{
     display: flex;
     align-items: center;
 }
+/*@@@@@@@@@@@@.   Music   @@@@@@@@@@@@@@@@*/
 #music{
     display: flex;
     align-items: center;
     border: solid 1px gray;
     border-radius: 8px;
-    background: rgb(254, 40, 80);
+    background: rgb(254, 75, 112);
     transition: 0.3s;
 }
 
 #music img{
-    width: 76px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
-    transition: 0.3s;
+    transition: 0.7s;
+    border-radius: 50%;
+    border: solid 1px black;
 }
+.rotate{
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 #music h5{
     padding-left: 12px;
+    color: white;
 }
-#music:hover{
+.btn:hover{
     transform: translateY(-3px);
 }
-#play{
+.btn{
     border: none;
-    padding: 10px 7px;
+    padding: 2px 3px;
     border-radius: 59%;
-    background: #0d0d0d;
+    background: #0086af;
     color: white;
     cursor: pointer;
-    transition: 0.3s;
+    width: 34px;
+    height: 32px;
+    margin: 8px 0px 2px 25px;
 }
+/*@@@@@@@@@@@@.   Security   @@@@@@@@@@@@@@@@*/
 
-
+.close img{
+    width: 36px;
+    height: 40px;
+}
+.open img{
+    width: 54px;
+    height: 52px;
+}
 
 
 @keyframes glow {
