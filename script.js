@@ -6,6 +6,34 @@ lampOn.addEventListener("click",function(){
     
 });
 
+/*@@@@@@@@@@@@@    Lamp   @@@@@@@@@@@@@@@*/
+
+let lamp = document.querySelector(".lamp");
+let range = document.getElementById("lamp-range");
+
+range.addEventListener("input",()=>{
+    let lampValue = range.value;
+
+    if(lampValue < 10){
+        lamp.style.color="#d4d299ff";
+       
+        
+    }
+    else if(lampValue < 30){
+        lamp.style.color="#9f9c31ff";
+    }
+    else if(lampValue < 70){
+        lamp.style.color="yellow";
+    }
+    else{
+        lamp.style.color="orange";
+    }
+})
+
+
+
+
+
 /*@@@@@@@@@@@@@    Music   @@@@@@@@@@@@@@@*/
 
 let audio = document.getElementById("audio");
@@ -64,10 +92,17 @@ next.addEventListener("click",()=>{
 
 let btnHeater = document.querySelector(".card-temp button");
 btnHeater.addEventListener("click",Heater);
+let cardTemp = document.querySelector(".card-temp");
+let h2Temp =  document.querySelector(".card-temp h2");
 function Heater(event){
+    btnHeater.style.backgroundColor="#9dd5a6ff";
+    btnHeater.style.color="black";
     if(btnHeater.textContent==="Chauffage allumé"){
         btnHeater.textContent="Chauffage éteint";
         document.getElementById("bar").style.display="none";
+        btnHeater.style.backgroundColor="#2f3430ff";
+        btnHeater.style.color="#9dd5a6ff";
+
     }
     else{
         btnHeater.textContent="Chauffage allumé";
@@ -76,47 +111,27 @@ function Heater(event){
         let tempValue = document.getElementById("temp-range").value;
         
         if( tempValue >= 0 && tempValue <= 11){
-            document.querySelector(".card-temp h2").textContent="Température Basse "+tempValue+"c°";
-            document.querySelector(".card-temp").style.backgroundColor = "white";
+            h2Temp.textContent="Température Basse "+tempValue+"c°";
+            cardTemp.style.backgroundColor = "white";
         }
         else if( tempValue >= 12 && tempValue <= 32){
-            document.querySelector(".card-temp").style.backgroundColor = "#59bd6b";
-            document.querySelector(".card-temp h2").textContent="Température Moyenne "+tempValue+"c°";
+            cardTemp.style.backgroundColor = "#59bd6b";
+            h2Temp.textContent="Température Moyenne "+tempValue+"c°";
         }
         else if( tempValue >= 33 && tempValue <= 45){
-            document.querySelector(".card-temp").style.backgroundColor = "#b46d3eff";
-            document.querySelector(".card-temp h2").textContent="Température Elevée "+tempValue+"c°";
+            cardTemp.style.backgroundColor = "#b46d3eff";
+            h2Temp.textContent="Température Elevée "+tempValue+"c°";
         }
         else{
-            document.querySelector(".card-temp").style.backgroundColor = "#ee0505ff";
-            document.querySelector(".card-temp h2").textContent="Température Trop elevée "+tempValue+"c°";
+            cardTemp.style.backgroundColor = "#ee0505ff";
+            h2Temp.textContent="Température Trop elevée "+tempValue+"c°";
+           
         }
         
         })
     }
 }
-/*document.getElementById("temp-range").addEventListener("mousemove",()=>{
-    let tempValue = document.getElementById("temp-range").value;
-    //console.log(tempValue);
-    let x =1;
-    if( tempValue >= 0 && tempValue <= 11){
-        document.querySelector(".card-temp h2").textContent="Température Basse "+tempValue+"c°";
-        document.querySelector(".card-temp").style.backgroundColor = "white";
-    }
-    else if( tempValue >= 12 && tempValue <= 32){
-        document.querySelector(".card-temp").style.backgroundColor = "#59bd6b";
-        document.querySelector(".card-temp h2").textContent="Température Moyenne "+tempValue+"c°";
-    }
-    else if( tempValue >= 33 && tempValue <= 45){
-        document.querySelector(".card-temp").style.backgroundColor = "#b46d3eff";
-        document.querySelector(".card-temp h2").textContent="Température Elevée "+tempValue+"c°";
-    }
-    else{
-        document.querySelector(".card-temp").style.backgroundColor = "#ee0505ff";
-        document.querySelector(".card-temp h2").textContent="Température Trop elevée "+tempValue+"c°";
-    }
-    
-})*/
+
 
 /*@@@@@@@@@@@@@    Sécurité   @@@@@@@@@@@@@@@*/
 
