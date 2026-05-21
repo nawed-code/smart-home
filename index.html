@@ -33,70 +33,109 @@
         <button>mode claire</button>
       </section>
     </aside>
-    <div id="container">
+    <div>
+    
+      <div id="container">
 
-      <header>
-        <h2>Bonjour Nawed!</h2>
-        <figcaption id="header-right">
-          <a href="#"><img src="image/bell-icon.jpg" alt="bell-icon"></a>
-          <a href="#"> <img src="image/profile1.png" alt="user-profile" width="70px" height="70px"> </a>
-        </figcaption>
-      </header>
-      <div id="dashboard">
+        <header>
+          <h2>Bonjour Nawed!</h2>
+          <figcaption id="header-right">
+            <a href="#"><img src="image/bell-icon.jpg" alt="bell-icon"></a>
+            <a href="#"> <img src="image/profile1.png" alt="user-profile" width="70px" height="70px"> </a>
+          </figcaption>
+        </header>
+        <div id="dashboard">
 
-        <div class="card-lamp">
-          <img src="image/lamp.webp" alt="lamp">
-          <h2>Lampe du salon</h2>
-          <h5>Salon</h5>
-          <button id="lamp">
-            <i class="fa-solid fa-lightbulb lamp"></i>
-          </button>
-          <h5>Intensité</h5>
-          <input type="range" value="0" min="0" max="100" id="lamp-range">
-        </div>
-
-        <div class="card-music">
-          <img src="image/musique.svg" alt="music-icon">
-          <h2>Musique</h2>
-          <h5>Salon</h5>
-          <section id="music">
-            <img src="image/music-album.jpg" alt="music-album">
-            <h5>Relax Playlist</5>
-          </section>
-          <button class="btn" id="back">
-            <i class="fa-solid fa-backward"></i>
-          </button>
-          <button class="btn" id="play">
-            <i class="fa-solid fa-play"></i>
-          </button>
-          <button class="btn" id="next">
-            <i class="fa-solid fa-forward"></i>
-          </button>
-          <audio controls id="audio">
-            <source src="music/1.mp3" type="audio/mp3">
-          </audio>
-        </div>
-
-        <div class="card-temp">
-          <img src="image/thermometer.png" alt="thermometer-icon">
-          <h2>Température</h2>
-          <h5>Chambre</h5>
-          <button>Chauffage</button>
-          <section id="bar">
+          <div class="card-lamp">
+            <img src="image/lamp.webp" alt="lamp">
+            <h2>Lampe du salon</h2>
+            <h5>Salon</h5>
+            <button id="lamp">
+              <i class="fa-solid fa-lightbulb lamp"></i>
+            </button>
             <h5>Intensité</h5>
-            <input type="range" value="" min="0" max="45" id="temp-range">
-          </section>
-        </div>
+            <input type="range" value="0" min="0" max="100" id="lamp-range">
+          </div>
 
-        <div class="card-security">
-          <img src="image/securite.png" alt="security-icon">
-          <h2>Sécurité</h2>
-          <h5>Maison</h5>
-          <button>Sécurité</button>
-          <section id="security">
-          </section>
-        </div>
+          <div class="card-music">
+            <img src="image/musique.svg" alt="music-icon">
+            <h2>Musique</h2>
+            <h5>Salon</h5>
+            <section id="music">
+              <img src="image/music-album.jpg" alt="music-album">
+              <h5>Relax Playlist</5>
+            </section>
+            <button class="btn" id="back">
+              <i class="fa-solid fa-backward"></i>
+            </button>
+            <button class="btn" id="play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <button class="btn" id="next">
+              <i class="fa-solid fa-forward"></i>
+            </button>
+            <audio controls id="audio">
+              <source src="music/1.mp3" type="audio/mp3">
+            </audio>
+          </div>
 
+          <div class="card-temp">
+            <img src="image/thermometer.png" alt="thermometer-icon">
+            <h2>Température</h2>
+            <h5>Chambre</h5>
+            <button>Chauffage</button>
+            <section id="bar">
+              <h5>Intensité</h5>
+              <input type="range" value="" min="0" max="45" id="temp-range">
+            </section>
+          </div>
+
+          <div class="card-security">
+            <img src="image/securite.png" alt="security-icon">
+            <h2>Sécurité</h2>
+            <h5>Maison</h5>
+            <button>Sécurité</button>
+            <section id="security">
+            </section>
+          </div>
+
+        </div>
+        <div id="setting">
+          <div id="graphe">
+            <section class="energie-photo">
+              <h4>Consommation énergitique</h4>
+              <p>Semaine</p>
+            </section>
+            <img src="image/graphe.png" alt="graphe-energitique">
+          </div>
+          <div id="scenario">
+            <h4>Scenario</h4>
+            <ul>
+              <li> Soirée cinéma </li>
+              <li>Lecture</li>
+              <li>Sortie de la maison </li>
+              <li>Nuit</li>
+            </ul>
+          </div>
+          <div id="camera">
+            <section class="energie-photo">
+              <h4>Caméra en directe</h4>
+              <a href="#">Tout voir</a>
+            </section>
+            <section id="pictures">
+              <figcaption>
+                <img src="image/entree.png" alt="entree">
+                <img src="image/jardin.png" alt="jardin">
+              </figcaption>
+              <figcaption>
+                <img src="image/room.png" alt="chambre">
+                <img src="image/salon.png" alt="salon">
+              </figcaption>
+               
+            </section>
+          </div>
+
+        </div>
       </div>
     </div>
     
