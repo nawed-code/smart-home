@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body>
     <aside id="side-bar">
@@ -35,7 +39,7 @@
         <h2>Bonjour Nawed!</h2>
         <figcaption id="header-right">
           <a href="#"><img src="image/bell-icon.jpg" alt="bell-icon"></a>
-          <a href="#"> <img src="image/profile1.jpeg" alt="user-profile" width="70px" height="70px"> </a>
+          <a href="#"> <img src="image/profile1.png" alt="user-profile" width="70px" height="70px"> </a>
         </figcaption>
       </header>
       <div id="dashboard">
@@ -58,9 +62,17 @@
             <img src="image/music-album.jpg" alt="music-album">
             <h5>Relax Playlist</5>
           </section>
-          <button id="play">Play</button>
-          <audio controls>
-            <source src="" type="audio/mp3">
+          <button class="btn" id="back">
+            <i class="fa-solid fa-backward"></i>
+          </button>
+          <button class="btn" id="play">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button class="btn" id="next">
+            <i class="fa-solid fa-forward"></i>
+          </button>
+          <audio controls id="audio">
+            <source src="music/1.mp3" type="audio/mp3">
           </audio>
         </div>
 
