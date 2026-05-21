@@ -48,16 +48,17 @@
           <img src="image/lamp.webp" alt="lamp">
           <h2>Lampe du salon</h2>
           <h5>Salon</h5>
-          <button id="lamp">ON</button>
+          <button id="lamp">
+            <i class="fa-solid fa-lightbulb lamp"></i>
+          </button>
           <h5>Intensité</h5>
-          <input type="range" value="70%" min="0" max="100%" id="lamp-range">
+          <input type="range" value="0" min="0" max="100" id="lamp-range">
         </div>
 
         <div class="card-music">
           <img src="image/musique.svg" alt="music-icon">
           <h2>Musique</h2>
           <h5>Salon</h5>
-          <button>ON</button>
           <section id="music">
             <img src="image/music-album.jpg" alt="music-album">
             <h5>Relax Playlist</5>
@@ -80,16 +81,20 @@
           <img src="image/thermometer.png" alt="thermometer-icon">
           <h2>Température</h2>
           <h5>Chambre</h5>
-          <button>ON</button>
-          <h5>Intensité</h5>
-          <input type="range" value="70%" min="0" max="100%" id="temp-range">
+          <button>Chauffage</button>
+          <section id="bar">
+            <h5>Intensité</h5>
+            <input type="range" value="" min="0" max="100" id="temp-range">
+          </section>
         </div>
 
         <div class="card-security">
           <img src="image/securite.png" alt="security-icon">
           <h2>Sécurité</h2>
           <h5>Maison</h5>
-          <button>ON</button>
+          <button>Sécurité</button>
+          <section id="security">
+          </section>
         </div>
 
       </div>
