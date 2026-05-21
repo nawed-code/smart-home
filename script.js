@@ -6,6 +6,8 @@ lampOn.addEventListener("click",function(){
     
 });
 
+/*@@@@@@@@@@@@@    Music   @@@@@@@@@@@@@@@*/
+
 let audio = document.getElementById("audio");
 audio.style.display="none";
 let play = document.getElementById("play");
@@ -44,6 +46,7 @@ back.addEventListener("click",function(){
     };
     audio.src = songs[currentSrc];
     audio.play();
+    play.innerHTML="Pause";
 });
 
 next.addEventListener("click",()=>{
@@ -53,8 +56,69 @@ next.addEventListener("click",()=>{
     };
     audio.src= songs[currentSrc];
     audio.play();
+    play.innerHTML="Pause";
     
 });
+
+/*@@@@@@@@@@@@@    Température   @@@@@@@@@@@@@@@*/
+
+document.getElementById("temp-range").addEventListener("mousemove",()=>{
+    let tempValue = document.getElementById("temp-range").value;
+    //console.log(tempValue);
+    let x =1;
+    if( tempValue >= 0 && tempValue <= 11){
+        document.querySelector(".card-temp h2").textContent="Température Basse "+tempValue+"c°";
+        document.querySelector(".card-temp").style.backgroundColor = "white";
+    }
+    else if( tempValue >= 12 && tempValue <= 32){
+        document.querySelector(".card-temp").style.backgroundColor = "#59bd6b";
+        document.querySelector(".card-temp h2").textContent="Température Moyenne "+tempValue+"c°";
+    }
+    else if( tempValue >= 33 && tempValue <= 45){
+        document.querySelector(".card-temp").style.backgroundColor = "#b46d3eff";
+        document.querySelector(".card-temp h2").textContent="Température Elevée "+tempValue+"c°";
+    }
+    else{
+        document.querySelector(".card-temp").style.backgroundColor = "#ee0505ff";
+        document.querySelector(".card-temp h2").textContent="Température Trop elevée "+tempValue+"c°";
+    }
+    
+})
+
+/*@@@@@@@@@@@@@    Sécurité   @@@@@@@@@@@@@@@*/
+
+let security = document.getElementById("security");
+let btn = document.querySelector(".card-security button");
+let h5 = document.createElement("h5");
+let img = document.createElement("img");
+
+btn.addEventListener("click",()=>{
+    if(btn.textContent ==="On"){
+        btn.textContent="Off";
+        btn.style.color="white";
+        btn.style.backgroundColor="black";
+        h5.textContent="Votre maison n'est pas en sécurité";
+        h5.style.color ="red";
+        img.setAttribute("src","image/open.jpg");
+        img.setAttribute("alt","warning-icon");
+        security.appendChild(h5);
+        security.appendChild(img);
+        security.classList.add("open");
+    }
+    else{
+        btn.textContent="On";
+        btn.style.color="black";
+        btn.style.backgroundColor="green";
+        h5.textContent="Votre maison est en sécurité";
+        h5.style.color ="green";
+        img.setAttribute("src","image/close.png");
+        img.setAttribute("alt","safety-icon");
+        security.appendChild(h5);
+        security.appendChild(img);
+        security.classList.remove("open");
+        security.classList.add("close");
+    }
+})
 
 
 
