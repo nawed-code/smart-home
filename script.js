@@ -16,8 +16,6 @@ range.addEventListener("input",()=>{
 
     if(lampValue < 10){
         lamp.style.color="#d4d299ff";
-       
-        
     }
     else if(lampValue < 30){
         lamp.style.color="#9f9c31ff";
@@ -110,15 +108,15 @@ function Heater(event){
         document.getElementById("temp-range").addEventListener("mousemove",()=>{
         let tempValue = document.getElementById("temp-range").value;
         
-        if( tempValue >= 0 && tempValue <= 11){
+        if(  tempValue <= 11){
             h2Temp.textContent="Température Basse "+tempValue+"c°";
             cardTemp.style.backgroundColor = "white";
         }
-        else if( tempValue >= 12 && tempValue <= 32){
+        else if( tempValue >= 12 && tempValue <= 22){
             cardTemp.style.backgroundColor = "#59bd6b";
             h2Temp.textContent="Température Moyenne "+tempValue+"c°";
         }
-        else if( tempValue >= 33 && tempValue <= 45){
+        else if( tempValue >= 23 && tempValue <= 33){
             cardTemp.style.backgroundColor = "#b46d3eff";
             h2Temp.textContent="Température Elevée "+tempValue+"c°";
         }
