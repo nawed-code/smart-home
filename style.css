@@ -41,12 +41,12 @@ div>img{
     width: 50px;
     height: 60px;
 }
-
+/*@@@@@@@@@@@@.   aside    @@@@@@@@@@@@@@@@*/
 #side-bar{
     border: solid 1px black;
     padding: 30px 15px;
 }
-
+/*@@@@@@@@@@@@.   Smarthome logo   @@@@@@@@@@@@@@@@*/
 #smart-home img{
     width: 30px;
     height: 30px;
@@ -57,6 +57,19 @@ div>img{
     display: flex;
     align-items: center;
 }
+
+/*@@@@@@@@@@@@.   Lamp   @@@@@@@@@@@@@@@@*/
+
+.lamp{
+    font-size: 45px;
+    color: rgb(37, 35, 35);
+    transition: 0.3s;
+}
+
+
+
+
+
 /*@@@@@@@@@@@@.   Music   @@@@@@@@@@@@@@@@*/
 #music{
     display: flex;
