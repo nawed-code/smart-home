@@ -6,17 +6,37 @@
   <meta charset="UTF-8">
   <style>
     header{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 22px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 14px;
       height: 130px;
       margin-top: 0px;
     }
-    header img{
+    header div{
+      display: flex;
+      align-items: center;
+    }
+    #smartHome{
+      justify-content: left;
+      gap: 2px;
+    }
+    #surveillance{
+      justify-content: center;
+      gap: 20px;
+    }
+    #surveillance img{
       width: 60px;
       height: 60px;
     }
+    #user img,#smartHome img{
+      width: 40px;
+      height: 40px;
+    }
+    #user{
+      justify-content: right;
+      gap: 10px;
+    }
+   
     #container{
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -48,8 +68,19 @@
   </head>
   <body>
     <header>
-      <h1>Vidéo surveillance</h1>
-      <img src="images/cctv.png" alt="">
+      <div id="smartHome">
+        <img src="images/smart-house.png" alt="smarhome-logo">
+        <h5>SmartHome</h5>
+      </div>
+      <div id="surveillance">
+        <h1>Vidéo surveillance</h1>
+        <img src="images/cctv.png" alt="cctv">
+      </div>
+      <div id="user">
+        <a href="#"><img src="images/bell-icon.jpg" alt="cloche-logo"> </a>
+        <a href="#"><img src="images/profile1.png" alt="user-logo"> </a>
+      </div>
+      
     </header>
     <div id="container">
       <aside>
