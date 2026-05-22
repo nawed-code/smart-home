@@ -193,6 +193,7 @@ const graphes = [
 let btnWeek = document.querySelector("#semaine button");
 let photo = document.querySelector("#graphe img");
 let ul = document.querySelector("#semaine ul");
+ul.style.display="none";
 btnWeek.addEventListener("click",ChangeImage);
 function ChangeImage(event){
     ul.innerHTML="";
