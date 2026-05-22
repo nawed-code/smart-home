@@ -1,5 +1,5 @@
 "use strict"
-
+lucide.createIcons();
 console.log("Hi console");
 let lampOn = document.getElementById("lamp"); 
 lampOn.addEventListener("click",function(){
