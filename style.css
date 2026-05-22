@@ -21,6 +21,62 @@ header{
     height: 48px;
     border-radius: 50%;
 }
+
+/*@@@@@@@@@@@@.   menu déroullant   @@@@@@@@@@@@@@@@*/
+
+#menu ul{
+    padding: 0px;
+    margin:0px;
+    display: none;
+    transition: 0.4s;
+
+}
+#menu li{
+    margin: 15px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    transition: 0.3s;
+
+}
+#menu a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    gap: 10px;
+
+}
+#menu a:hover{
+    transform: translateX(5px);
+    color: green;
+}
+
+#menu:hover ul{
+    display: block;
+}
+#menu h5{
+    width: fit-content;
+    transition: 0.4s;
+}
+#menu:hover h5{
+    color: gray;
+    border-bottom: dashed 1px green;
+    transform: translateX(4px);
+}
+/*@@@@@@@@@@@@.  Mode    @@@@@@@@@@@@@@@@*/
+
+/*aside{
+    position: relative;
+}
+#mode button{
+    position: absolute;
+    bottom: 12px;
+
+}*/
+
+
 /*@@@@@@@@@@@@.  id dashboard    @@@@@@@@@@@@@@@@*/
 
 #dashboard{
@@ -50,7 +106,7 @@ header{
 }
 #graphe>img{
     width: 300px;
-    height: 200px;
+    height: 185px;
 }
 
 .card-lamp,.card-music,.card-temp,.card-security{
@@ -77,6 +133,14 @@ div>img{
     
 }
 
+#scenario li{
+    list-style: none;
+    border: solid 0.5px black;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 12px;
+    width: 130px;
+}
 
 
 
