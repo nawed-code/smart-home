@@ -1,10 +1,14 @@
 "use strict"
-lucide.createIcons();
+lucide.createIcons();           //bibliothèque Lucide
 console.log("Hi console");
 let lampOn = document.getElementById("lamp"); 
 lampOn.addEventListener("click",function(){
     
 });
+
+/*@@@@@@@@@@@@@    Mode   @@@@@@@@@@@@@@@*/
+
+let btnMode = document.querySelector("#mode button");
 
 /*@@@@@@@@@@@@@    Lamp   @@@@@@@@@@@@@@@*/
 
@@ -42,7 +46,7 @@ let image = document.querySelector("#music img");
 play.addEventListener("click",()=>{
     if(audio.paused){
         audio.play();
-        play.innerHTML="Pause";
+        play.innerHTML="Paus";
         image.classList.toggle("rotate");
     }
     else{
@@ -72,7 +76,7 @@ back.addEventListener("click",function(){
     };
     audio.src = songs[currentSrc];
     audio.play();
-    play.innerHTML="Pause";
+    play.innerHTML="Paus";
 });
 
 next.addEventListener("click",()=>{
@@ -82,7 +86,7 @@ next.addEventListener("click",()=>{
     };
     audio.src= songs[currentSrc];
     audio.play();
-    play.innerHTML="Pause";
+    play.innerHTML="Paus";
     
 });
 
@@ -165,6 +169,51 @@ btn.addEventListener("click",()=>{
         security.classList.add("close");
     }
 })
+
+/*@@@@@@@@@@@@@    Photo graphique   @@@@@@@@@@@@@@@*/
+const graphes = [
+    {
+        name:"semaine1",
+        image:"image/graphe1.png"
+    },
+    {
+        name:"semaine2",
+        image:"image/graphe2.png"
+    },
+    {
+        name:"semaine3",
+        image:"image/graphe3.png"
+    },
+    {
+        name:"semaine4",
+        image:"image/graphe4.png"
+    }
+
+];
+let btnWeek = document.querySelector("#semaine button");
+let photo = document.querySelector("#graphe img");
+let ul = document.querySelector("#semaine ul");
+btnWeek.addEventListener("click",ChangeImage);
+function ChangeImage(event){
+    ul.innerHTML="";
+    for(let i = 0; i < graphes.length ; i++){
+        let li = document.createElement("li");
+        li.textContent=graphes[i].name;
+        li.dataset.num = i;
+        li.style.listStyle="none";
+        li.addEventListener("click",AjoutImage);
+        ul.appendChild(li);
+    }
+    ul.style.display="block";
+    
+};
+function AjoutImage(event){
+    let numImage = event.currentTarget.dataset.num;
+    photo.setAttribute("src",graphes[numImage].image);
+    ul.style.display="none";
+    btnWeek.textContent=graphes[numImage].name;
+    
+}
 
 
 
