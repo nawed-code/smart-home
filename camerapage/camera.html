@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html lang="fr">
+  <head>
+  <title>SmartHome-Camera</title>
+  <meta name="Nawed-code" >
+  <meta charset="UTF-8">
+  <style>
+    header{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      height: 130px;
+      margin-top: 0px;
+    }
+    header img{
+      width: 60px;
+      height: 60px;
+    }
+    #container{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+    }
+    aside{
+      display: grid;
+      grid-template-rows: 1fr 2fr;
+      gap: 8px;
+      
+    }
+    .information{
+      border: solid 1px black;
+      border-radius: 4px;
+      padding: 12px;
+    }
+    #searche input{
+      margin-top: 8px;
+      margin-right: 10px;
+    }
+    #monitor img{
+      width: 600px;
+      height: 400px;
+    }
+    
+    
+  </style>
+  
+  </head>
+  <body>
+    <header>
+      <h1>Vidéo surveillance</h1>
+      <img src="images/cctv.png" alt="">
+    </header>
+    <div id="container">
+      <aside>
+        <div id="searche" class="information">
+          <label for="">Veuillez écrire le nom de pièce: </label>
+          <input type="text" name="text" placeholder="Nom de pièce" value="">
+          <button>Chercher</button>
+        </div>
+        <div id="details" class="information">
+          <p>Ici vous voyez les détails de chaque pièce </p>
+        </div>
+      </aside>
+      <div id="monitor">
+        <img src="images/jardin.png" alt="" >
+      </div>
+    </div>
+  </body>
+  
+
+</html>
