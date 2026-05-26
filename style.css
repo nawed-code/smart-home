@@ -22,7 +22,7 @@ header{
     border-radius: 50%;
 }
 
-/*@@@@@@@@@@@@.   menu déroullant   @@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@.   menu   @@@@@@@@@@@@@@@@*/
 
 #menu ul{
     padding: 0px;
@@ -129,32 +129,41 @@ div>img{
     align-items: center;
 }
 #graphe>img{
-    width: auto;
-    height: 185px;
+    width: 100%;
+    height: auto;
 }
 
 /*@@@@@@@@@@@@.  Camera en directe    @@@@@@@@@@@@@@@@*/
 
 
 #pictures{
-    display: grid;
-    grid-template-rows: repeat(auto-fit,minmax(50px,1fr));
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
 }
 #pictures img{
-    width: 146px;
-    height: 96px;
+    width: 100%;
+    height: auto;
     
 }
 
 /*@@@@@@@@@@@@.  Scénarios    @@@@@@@@@@@@@@@@*/
+#scenario{
+    display: flex;
+    flex-direction: column;
+}
+
 
 #scenario li{
     list-style: none;
     border: solid 0.5px black;
     border-radius: 5px;
-    padding: 10px 30px;
-    margin: 12px;
-    width: 130px;
+    padding: 10px 20px;
+    margin: 8px;
+    width: 50%;
+}
+#scenario h4{
+    margin-bottom: 0px;
 }
 
 
