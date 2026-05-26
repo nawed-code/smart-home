@@ -1,5 +1,4 @@
 "use strict"
-
 const pieces = [
 
     {
@@ -53,3 +52,24 @@ const pieces = [
     }
 
 ];
+const noms = ["Salon","Cuisine","Jardin","Entrée","Garage","Salon 2" ,"Chambre Parentale"];
+
+let btnSearche = document.querySelector("#searche button");
+btnSearche.addEventListener("click",affichePhoto);
+
+function affichePhoto(event){
+    let valeur = document.querySelector("#searche input").value.trim();
+    let error = document.getElementById("error");
+    if(valeur === "" || !noms.some(nom => nom.toLowerCase().includes(valeur.toLowerCase()))){
+        error.textContent="";
+        let p = document.createElement("p");
+        p.textContent="Veuillez écrire un nom valide";
+        error.style.color="red";
+        error.appendChild(p);
+        return 
+    }
+    else{
+        error.textContent="";
+
+    }
+}
