@@ -55,6 +55,8 @@ const pieces = [
 const noms = ["Salon","Cuisine","Jardin","Entrée","Garage","Salon 2" ,"Chambre Parentale"];
 
 let btnSearche = document.querySelector("#searche button");
+let detail = document.getElementById("details");
+let img = document.querySelector("#monitor img");
 btnSearche.addEventListener("click",affichePhoto);
 
 function affichePhoto(event){
@@ -70,6 +72,19 @@ function affichePhoto(event){
     }
     else{
         error.textContent="";
-
+        while(detail.children.length > 1){
+                detail.removeChild(detail.lastElementChild);
+            };
+        for(let i = 0; i < pieces.length ; i++){
+            if(pieces[i].title.toLowerCase() === valeur.toLowerCase()){
+                let h3 = document.createElement("h3");
+                h3.textContent= pieces[i].title;
+                detail.appendChild(h3);
+                let p = document.createElement("p");
+                p.textContent= `Position : ${pieces[i].position} avec une superficie : ${pieces[i].superficie} et le nombre de portes : ${pieces[i].portes}`;
+                detail.appendChild(p);
+            }
+        }
     }
+    
 }
