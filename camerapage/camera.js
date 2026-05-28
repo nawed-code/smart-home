@@ -2,49 +2,49 @@
 const pieces = [
 
     {
-        image : "../image/smart-house.png",
+        image : "../image/salon.png",
         title : "Salon",
         position : "Rez-de-chaussée",
         superficie : "35m²",
         portes : 2
     },
     {
-        image : "../image/smart-house.png",
+        image : "../image/cuisine.jpg",
         title : "Cuisine",
         position : "Rez-de-chaussée",
         superficie : "18m²",
         portes : 1
     },
     {
-        image : "../image/smart-house.png",
+        image : "../image/chambre.jpg",
         title : "Chambre Parentale",
         position : "1er étage",
         superficie : "25m²",
         portes : 1
     },
     {
-        image : "../image/smart-house.png",
+        image : "../image/room.png",
         title : "Salon 2",
         position : "1er étage",
         superficie : "20m²",
         portes : 2
     },
     {
-        image : "../image/smart-house.png",
+        image : "../image/garage.jpg",
         title : "Garage",
         position : "Sous-sol",
         superficie : "28m²",
         portes : 1
     },
     {
-        image : "../image/smart-house.png",
+        image : "../image/jardin.png",
         title : "Jardin",
         position : "Extérieur",
         superficie : "68m²",
         portes : 3
     },
     {
-        image : "../image/smart-house.png",
+        image : "../image/entree.png",
         title : "Entrée",
         position : "Extérieur",
         superficie : "4m²",
@@ -81,8 +81,9 @@ function affichePhoto(event){
                 h3.textContent= pieces[i].title;
                 detail.appendChild(h3);
                 let p = document.createElement("p");
-                p.textContent= `Position : ${pieces[i].position} avec une superficie : ${pieces[i].superficie} et le nombre de portes : ${pieces[i].portes}`;
+                p.textContent= `Position : ${pieces[i].position}, superficie : ${pieces[i].superficie} et le nombre de portes : ${pieces[i].portes}`;
                 detail.appendChild(p);
+                img.src =  pieces[i].image;
             }
         }
     }
