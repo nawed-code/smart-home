@@ -166,11 +166,27 @@ div>img{
     margin-bottom: 0px;
 }
 
+#cinema li,#ai li{
+    padding: 0px;
+    margin : 0px;
+    border-radius: 50%;
+    display: inline;
+}
+#cinema a,#ai a{
+    padding: 0px;
+    margin : 0px;
+    text-decoration: none;
+}
+#cinema img,#ai img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
 
 
 /*@@@@@@@@@@@@.   aside    @@@@@@@@@@@@@@@@*/
 #side-bar{
-    
     padding: 0px 15px;
 }
 /*@@@@@@@@@@@@.   Smarthome logo   @@@@@@@@@@@@@@@@*/
