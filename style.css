@@ -161,6 +161,11 @@ div>img{
     padding: 10px 20px;
     margin: 8px;
     width: 50%;
+    transition: 0.4s;
+}
+#scenario li:hover{
+    transform: translateX(4px);
+    background-color: #b4d9e4;
 }
 #scenario h4{
     margin-bottom: 0px;
@@ -182,7 +187,23 @@ div>img{
     width: 40px;
     height: 40px;
 }
+#cinema, #ai{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+}
+.cinema-menu:hover #cinema{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-10px);
+}
 
+.ai-menu:hover #ai{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-13px);
+}
 
 
 /*@@@@@@@@@@@@.   aside    @@@@@@@@@@@@@@@@*/
