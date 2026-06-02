@@ -15,25 +15,28 @@
   </head>
   <body>
     <aside id="side-bar">
-      <section id="smart-home">
-        <img src="image/smart-house.png" alt="home-icon" >
-        <h5>SmartHome</h5>
-      </section>
-      <section id="menu">
-        <h5>Tableau de board</h5>
-        <ul>
-          <li> <a href="#lamp_range"> <i data-lucide="lightbulb"></i>Eclairage</a></li>
-          <li> <a href="#music"> <i data-lucide="Music"></i>Musique</a></li>
-          <li> <a href="#bar"> <i data-lucide="thermometer"></i>Température</a></li>
-          <li> <a href="#security"> <i data-lucide="shield"></i>Sécurité</a></li>
-          <li> <a href="#camera"> <i data-lucide="camera"></i>Caméras</a></li>
-          <li> <a href="#scenario"> <i data-lucide="triangle"></i>Scénarios</a></li>
-          <li> <a href="#graphe"> <i data-lucide="sliders"></i>Paramètres</a></li>
-        </ul>
-      </section>
-      <section id="mode">
+      <div>
+        <section id="smart-home">
+          <img src="image/smart-house.png" alt="home-icon" >
+          <h5>SmartHome</h5>
+        </section>
+        <section id="menu">
+          <h5>Tableau de board</h5>
+          <ul>
+            <li> <a href="#lamp_range"> <i data-lucide="lightbulb"></i>Eclairage</a></li>
+            <li> <a href="#music"> <i data-lucide="Music"></i>Musique</a></li>
+            <li> <a href="#bar"> <i data-lucide="thermometer"></i>Température</a></li>
+            <li> <a href="#security"> <i data-lucide="shield"></i>Sécurité</a></li>
+            <li> <a href="#camera"> <i data-lucide="camera"></i>Caméras</a></li>
+            <li> <a href="#scenario"> <i data-lucide="triangle"></i>Scénarios</a></li>
+            <li> <a href="#graphe"> <i data-lucide="sliders"></i>Paramètres</a></li>
+          </ul>
+        </section>
+      </div>
+      
+      <div id="mode">
         <button> <i data-lucide="moon"></i>mode sombre</button>
-      </section>
+      </div>
     </aside>
     <div>
     
@@ -114,8 +117,22 @@
           <div id="scenario">
             <h4>Scenario</h4>
             <ul>
-              <li> Soirée cinéma </li>
-              <li>Lecture</li>
+              <section class="cinema-menu">
+                <li>Soirée Cinéma</li>
+                <ul  id="cinema">
+                  <li><a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com"><img src="image/youtube.jpg" alt="youtube-logo"></i></a></li>
+                  <li><a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.netflix.com"><img src="image/netflix.webp" alt="netflix-logo"></i></a></li>
+                  <li><a href="https://www.google.com"><img src="image/google.webp" alt="google-logo"></i></a></li>
+                </ul>
+              </section>
+              <section class="ai-menu">
+                <li>Lecture</li>
+                <ul id="ai">
+                  <li><a href="#"><img src="image/chatgpt.webp" alt="cahtgpt-logo"></i></a></li>
+                  <li><a href="#"><img src="image/gimini.webp" alt="gimini-logo"></i></a></li>
+                  <li><a href="#"><img src="image/deepseek.png" alt="deepseek-logo"></i></a></li>
+                </ul>
+              </section>
               <li>Sortie de la maison </li>
               <li>Nuit</li>
             </ul>
