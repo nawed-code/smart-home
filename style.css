@@ -22,6 +22,14 @@ header{
     border-radius: 50%;
 }
 
+/*@@@@@@@@@@@@.   aside    @@@@@@@@@@@@@@@@*/
+#side-bar{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+}
+
 /*@@@@@@@@@@@@.   menu   @@@@@@@@@@@@@@@@*/
 
 #menu ul{
@@ -68,22 +76,27 @@ header{
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-bottom: 20px;
+}
+/*@@@@@@@@@@@@.  dark-theme    @@@@@@@@@@@@@@@@*/
 
+.dark-theme{
+    background-color: black;
+    color: white;
 }
-.sombre{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: green;
-    border: solid 1px green;
-    
+body.dark-theme #side-bar a,a{
+    color: white;
 }
-.claire{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: black;
+body.dark-theme .card-lamp, 
+body.dark-theme .card-music, 
+body.dark-theme .card-temp,
+body.dark-theme .card-security,
+body.dark-theme #graphe,
+body.dark-theme #scenario,
+body.dark-theme #camera{
+    border: solid 0.4px white;
 }
+
 
 
 /*@@@@@@@@@@@@.  id dashboard    @@@@@@@@@@@@@@@@*/
@@ -193,13 +206,8 @@ div>img{
     visibility: hidden;
     transition: 0.4s;
 }
-.cinema-menu:hover #cinema{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(-10px);
-}
 
-.ai-menu:hover #ai{
+.ai-menu:hover #ai,.cinema-menu:hover #cinema{
     opacity: 1;
     visibility: visible;
     transform: translateY(-13px);
