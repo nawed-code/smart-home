@@ -1,5 +1,5 @@
 "use strict"
-lucide.createIcons();           //bibliothèque Lucide
+lucide.createIcons();       //bibliothèque Lucide
 console.log("Hi console");
 let lampOn = document.getElementById("lamp"); 
 lampOn.addEventListener("click",function(){
@@ -9,6 +9,22 @@ lampOn.addEventListener("click",function(){
 /*@@@@@@@@@@@@@    Mode   @@@@@@@@@@@@@@@*/
 
 let btnMode = document.querySelector("#mode button");
+let b = document.body;
+btnMode.addEventListener("click",changeMode);
+function changeMode(event){
+    console.log(btnMode.textContent);
+    lucide.createIcons();
+    if(btnMode.textContent.trim() === "mode sombre"){
+        btnMode.textContent = "mode claire";
+        b.classList.add("dark-theme");
+    }
+    else{
+        btnMode.textContent='mode sombre';;
+        b.classList.remove("dark-theme");
+    }
+    
+}
+
 
 /*@@@@@@@@@@@@@    Lamp   @@@@@@@@@@@@@@@*/
 
