@@ -8,19 +8,26 @@ lampOn.addEventListener("click",function(){
 
 /*@@@@@@@@@@@@@    Mode   @@@@@@@@@@@@@@@*/
 
+
 let btnMode = document.querySelector("#mode button");
 let b = document.body;
+
+if(localStorage.getItem("theme") === "mode sombre"){
+    btnMode.textContent = "mode claire";
+    b.classList.add("dark-theme");
+}
+
 btnMode.addEventListener("click",changeMode);
-function changeMode(event){
-    console.log(btnMode.textContent);
-    lucide.createIcons();
+function changeMode(){
     if(btnMode.textContent.trim() === "mode sombre"){
         btnMode.textContent = "mode claire";
         b.classList.add("dark-theme");
+        localStorage.setItem('theme','mode sombre');
     }
     else{
-        btnMode.textContent='mode sombre';;
+        btnMode.textContent='mode sombre';
         b.classList.remove("dark-theme");
+        localStorage.setItem('theme',"mode claire");
     }
     
 }
