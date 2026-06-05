@@ -115,47 +115,44 @@ next.addEventListener("click",()=>{
 
 /*@@@@@@@@@@@@@    Température   @@@@@@@@@@@@@@@*/
 
-let btnHeater = document.querySelector(".card-temp button");
+const btnHeater = document.querySelector(".card-temp button");
+const tempRange = document.getElementById("temp-range");
+const barSection = document.getElementById("bar");
+const degree = document.getElementById("num");
+const cilcius = document.getElementById("c");
 btnHeater.addEventListener("click",Heater);
-let cardTemp = document.querySelector(".card-temp");
-let h2Temp =  document.querySelector(".card-temp h2");
-function Heater(event){
-    btnHeater.style.backgroundColor="#9dd5a6ff";
-    btnHeater.style.color="black";
-    if(btnHeater.textContent==="Chauffage allumé"){
-        btnHeater.textContent="Chauffage éteint";
-        document.getElementById("bar").style.display="none";
-        btnHeater.style.backgroundColor="#2f3430ff";
-        btnHeater.style.color="#9dd5a6ff";
 
+function Heater(){
+   
+    if(btnHeater.textContent==="On"){
+        btnHeater.textContent="Off";
+        document.getElementById("bar").style.display="none";
+        
     }
     else{
-        btnHeater.textContent="Chauffage allumé";
+        btnHeater.textContent="On";
         document.getElementById("bar").style.display="block";
-        document.getElementById("temp-range").addEventListener("mousemove",()=>{
-        let tempValue = document.getElementById("temp-range").value;
-        
-        if(  tempValue <= 11){
-            h2Temp.textContent="Température Basse "+tempValue+"c°";
-            cardTemp.style.backgroundColor = "white";
-        }
-        else if( tempValue >= 12 && tempValue <= 22){
-            cardTemp.style.backgroundColor = "#59bd6b";
-            h2Temp.textContent="Température Moyenne "+tempValue+"c°";
-        }
-        else if( tempValue >= 23 && tempValue <= 33){
-            cardTemp.style.backgroundColor = "#b46d3eff";
-            h2Temp.textContent="Température Elevée "+tempValue+"c°";
-        }
-        else{
-            cardTemp.style.backgroundColor = "#ee0505ff";
-            h2Temp.textContent="Température Trop elevée "+tempValue+"c°";
-           
-        }
-        
-        })
+        updateTemperatureDisplay();
     }
 }
+        
+tempRange.addEventListener("input",updateTemperatureDisplay);
+function updateTemperatureDisplay() {
+        if (btnHeater.textContent === "On") {
+            let tempValue = tempRange.value;
+            degree.textContent = tempValue;
+
+            // Gestion de la couleur selon la température
+            if (tempValue > 24) {
+                cilcius.style.color = "red";
+                degree.style.color = "red";
+            } else {
+                cilcius.style.color = "blue";
+                degree.style.color = "blue";
+            }
+        }
+}
+
 
 
 /*@@@@@@@@@@@@@    Sécurité   @@@@@@@@@@@@@@@*/
