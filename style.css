@@ -84,8 +84,9 @@ header{
     background-color: black;
     color: white;
 }
-body.dark-theme #side-bar a,a{
+body.dark-theme #side-bar a{
     color: white;
+    
 }
 body.dark-theme .card-lamp, 
 body.dark-theme .card-music, 
@@ -119,6 +120,7 @@ body.dark-theme #camera{
 div>img{
     width: 50px;
     height: 60px;
+    border-radius: 10px;
 }
 /*@@@@@@@@@@@@.   id setting   @@@@@@@@@@@@@@@@*/
 
@@ -158,6 +160,9 @@ div>img{
     width: 100%;
     height: auto;
     
+}
+#camera a{
+    color: green;
 }
 
 /*@@@@@@@@@@@@.  Scénarios    @@@@@@@@@@@@@@@@*/
@@ -287,6 +292,22 @@ div>img{
     height: 32px;
     margin: 8px 0px 2px 25px;
 }
+
+/*@@@@@@@@@@@@.   température   @@@@@@@@@@@@@@@@*/
+#num{
+    font-size: xx-large;
+    margin-left: 10px;
+}
+#c{
+    color: blue;
+    font-size: xx-large;
+}
+#bar{
+    margin-top: 12px;
+}
+
+
+
 /*@@@@@@@@@@@@.   Security   @@@@@@@@@@@@@@@@*/
 
 .close img{

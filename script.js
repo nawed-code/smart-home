@@ -153,6 +153,32 @@ function updateTemperatureDisplay() {
         }
 }
 
+//  XMLHttpRequest avec  Openweathermap.org
+
+const apiKey = "2a9c5a7f19fdf0b8318cbfdc1cecaa41";
+let city = "Caen";
+
+const tempExtDisplay = document.getElementById("temp-ext");
+const weatherDescDisplay = document.getElementById("weather-desc");
+
+function getExternelWeather(){
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fr`;
+    let requete = new XMLHttpRequest();
+
+    requete.open("GET",url,true);
+    requete.addEventListener("load",responseAnalyse);
+    requete.responseType("json");
+    requete.send();
+    function responseAnalyse(event){
+        console.log(event.currentTarget.Response);
+    }
+
+}
+
+
+
+
+
 
 
 /*@@@@@@@@@@@@@    Sécurité   @@@@@@@@@@@@@@@*/
