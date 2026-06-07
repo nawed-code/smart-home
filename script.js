@@ -117,7 +117,6 @@ next.addEventListener("click",()=>{
 
 const btnHeater = document.querySelector(".card-temp button");
 const tempRange = document.getElementById("temp-range");
-const barSection = document.getElementById("bar");
 const degree = document.getElementById("num");
 const cilcius = document.getElementById("c");
 btnHeater.addEventListener("click",Heater);
@@ -167,13 +166,24 @@ function getExternelWeather(){
 
     requete.open("GET",url,true);
     requete.addEventListener("load",responseAnalyse);
-    requete.responseType("json");
+    requete.responseType ="json";
     requete.send();
     function responseAnalyse(event){
-        console.log(event.currentTarget.Response);
+        
+        if(requete.status == 200){
+            console.log(requete.response);
+            let data = requete.response;
+            tempExtDisplay.textContent = data.main.temp;
+            weatherDescDisplay.textContent = "ciel: "+data.weather[0].description;
+        }
+        else{
+            console.log("Erreur :",requete.status);
+            weatherDescDisplay.textContent="??";
+        }
     }
 
 }
+getExternelWeather();
 
 
 
