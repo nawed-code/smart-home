@@ -1,0 +1,40 @@
+<!DOCTYPE html/>
+<html lang="eng">
+    <head>
+        <title>SmartHome-Position</title>
+        <style>
+            #container{
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+                gap: 10px;
+                margin: 12px;
+            }
+            div#map, div#infos{
+                border: solid 0.4px black;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+        </header>
+        <div id="container">
+            <div id="position">
+                <h2>Position</h2>
+                <section id="search">
+                    <input type="text" value="" placeholder="Ville">
+                    <button>Cherche</button>
+                </section>
+                <div id="map">
+
+                </div>
+            </div>
+            <div id="event">
+                <h2>Evènements</h2>
+                <div id="infos">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur pariatur mollitia harum quidem voluptatum aut quia distinctio suscipit saepe rerum autem nostrum recusandae, nesciunt accusantium obcaecati nemo eius quasi molestias?</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
