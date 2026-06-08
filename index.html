@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="theme.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -29,13 +30,14 @@
             <li> <a href="#security"> <i data-lucide="shield"></i>Sécurité</a></li>
             <li> <a href="#camera"> <i data-lucide="camera"></i>Caméras</a></li>
             <li> <a href="#scenario"> <i data-lucide="triangle"></i>Scénarios</a></li>
+            <li> <a href="position.html"> <i data-lucide="map-pinned"></i>Position</a></li>
             <li> <a href="#graphe"> <i data-lucide="sliders"></i>Paramètres</a></li>
           </ul>
         </section>
       </div>
       
       <div id="mode">
-        <button> <i data-lucide="moon"></i>mode sombre</button>
+        <button>mode sombre</button>
       </div>
     </aside>
     <div>
@@ -88,10 +90,11 @@
             <img src="image/thermometer.png" alt="thermometer-icon">
             <h2>Température</h2>
             <h5>Chambre</h5>
-            <button>Chauffage</button>
+            <p class="weather-ext">Extérieur : <span id="temp-ext">--</span>°C (<span id="weather-desc">grand ciel bleu</span>)</p>
+            <button>Off</button>
             <section id="bar">
-              <h5>Intensité</h5>
-              <input type="range" value="" min="0" max="45" id="temp-range">
+              <p><span id="num">22</span> <span id="c">°C</span></p>
+              <input type="range" value="" min="0" max="35" id="temp-range">
             </section>
           </div>
 
@@ -133,8 +136,10 @@
                   <li><a href="#"><img src="image/deepseek.png" alt="deepseek-logo"></i></a></li>
                 </ul>
               </section>
-              <li>Sortie de la maison </li>
-              <li>Nuit</li>
+              <section id="map">
+                <li><a href="position.html">Evènements du jour</a></li>
+                <li><a href="position.html">Position</a></li>
+              </section>
             </ul>
           </div>
           <div id="camera">
