@@ -1,29 +1,33 @@
-<!DOCTYPE html/>
+<!DOCTYPE html>
 <html lang="eng">
     <head>
         <title>SmartHome-Position</title>
         <style>
             #container{
                 display: grid;
-                grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+                grid-template-columns: 2fr 1fr;
                 gap: 10px;
                 margin: 12px;
             }
-            div#map, div#infos{
-                border: solid 0.4px black;
-                border-radius: 5px;
-            }
+            
         </style>
+        <script src="position.js" defer></script>
     </head>
     <body>
         <header>
         </header>
         <div id="container">
             <div id="position">
-                <h2>Position</h2>
+                <h2>Recherche Ville</h2>
                 <section id="search">
                     <input type="text" value="" placeholder="Ville">
                     <button>Cherche</button>
+                    <span id="erreur"></span>
+                </section>
+                <section id="description">
+                    <h3>Ville</h3>
+                    <p>Aujourd'hui : <span id="date"></span>--<span id="temp">--</span>°C -- <span id="tempDesc">(ciel)</span></p>
+                    <p>Vitesse du vent : <span id="speed"></span>-- Ressenti : <span id="ressenti">--</span>°C -- Minimume : <span id="min">--</span>°C </p>
                 </section>
                 <div id="map">
 
