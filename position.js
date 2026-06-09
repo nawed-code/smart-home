@@ -12,15 +12,15 @@ let ressenti = document.getElementById("ressenti");
 let min = document.getElementById("min");
 let speed = document.getElementById("speed");
 
-let lat;
-let lon;
+let lat = 49.1829;   // Caen
+let lon = -0.3707;
 
 let dateAujo = new Date().toLocaleDateString();
 date.textContent= dateAujo;
 
 const apiKey = "2a9c5a7f19fdf0b8318cbfdc1cecaa41";
 
-/*@@@@@@@@@@@@@    Map  @@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@    Info sur la ville  @@@@@@@@@@@@@@@*/
 btn.addEventListener("click",information);
 function information(){
     let value = input.value.trim();
@@ -40,8 +40,11 @@ function information(){
             if(requet.status === 200){
                 console.log(requet.response)
                 let data = requet.response;
-                lat = data.coord.lat;
-                lon = data.coord.lon;
+                lat = Number(data.coord.lat);
+                lon = Number(data.coord.lon);
+                map.setView([lat, lon], 12);
+                marker.setLatLng([lat, lon]);
+                marker.bindPopup(value).openPopup();
                 temp.textContent=data.main.temp;
                 descTemp.textContent = "Ciel: "+data.weather[0].description;
                 ressenti.textContent = data.main.feels_like;
@@ -58,3 +61,15 @@ function information(){
     }
 }
 
+/*@@@@@@@@@@@@@    Map  @@@@@@@@@@@@@@@*/
+
+let map = L.map("map").setView([lat,lon], 12);
+L.tileLayer(
+    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        maxZoom: 19
+    }
+).addTo(map);
+let marker = L.marker([lat, lon])
+    .addTo(map)
+    .bindPopup("Caen");
