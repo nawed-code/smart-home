@@ -38,10 +38,11 @@ function information(){
         requet.open("GET",url,true);
         requet.addEventListener("load",()=>{
             if(requet.status === 200){
-                console.log(requet.response)
+                //console.log(requet.response)
                 let data = requet.response;
                 lat = Number(data.coord.lat);
                 lon = Number(data.coord.lon);
+                console.log(lat, lon);
                 map.setView([lat, lon], 12);
                 marker.setLatLng([lat, lon]);
                 marker.bindPopup(value).openPopup();
@@ -58,6 +59,29 @@ function information(){
         });
         requet.responseType ="json";
         requet.send();
+
+                            /*@@@@@@@@@@@@@    News API   @@@@@@@@@@@@@@@*/
+
+        let newsUrl = `https://gnews.io/api/v4/search?q=${value}&lang=fr&token=${newsApiKey}`;
+        let newsRequete = new XMLHttpRequest();
+        newsRequete.open("GET",newsUrl,true);
+        newsRequete.addEventListener("load",()=>{
+            //console.log("status de réponse : ",newsRequete.status);
+            //console.log("news réponse :", newsRequete.response);
+            if(newsRequete.status === 200){
+                console.log("status de réponse : ",newsRequete.status);
+                console.log("news réponse :", newsRequete.response);
+            }
+            else{
+                console.log(`Erreur : ${newsRequete.status}`);
+            }
+        });
+        newsRequete.responseType ="json";
+        console.log("mon url : ",newsUrl);
+        newsRequete.send();
+        
+
+
     }
 }
 
@@ -73,3 +97,10 @@ L.tileLayer(
 let marker = L.marker([lat, lon])
     .addTo(map)
     .bindPopup("Caen");
+
+    /*@@@@@@@@@@@@@    Actualité   @@@@@@@@@@@@@@@*/
+
+const newsApiKey = "08c763381c0cd324500c7b710d1f73a4";       // apikey de Gnewsapi 
+const tecketMasterApiKey = "";
+
+
