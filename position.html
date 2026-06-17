@@ -8,11 +8,23 @@
                 grid-template-columns: 2fr 1fr;
                 gap: 10px;
                 margin: 12px;
+                height: 100vh;
             }
             #map{
                 width: 100%;
                 height: 300px;
                 border-radius: 10px;
+            }
+            #event{
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                gap: 10px;
+                overflow: hidden;
+
+            }
+            #actualite,
+            #evenement{
+                overflow-y: auto;
             }
             
         </style>
@@ -41,9 +53,13 @@
                 </div>
             </div>
             <div id="event">
-                <h2>Evènements</h2>
-                <div id="infos">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur pariatur mollitia harum quidem voluptatum aut quia distinctio suscipit saepe rerum autem nostrum recusandae, nesciunt accusantium obcaecati nemo eius quasi molestias?</p>
+                <div id="actualite">
+                    <h2>Evènements</h2>
+                    
+                </div>
+                <div id="evenement">
+                    <h2>Description</h2>
+                    <p>Pour voire les descriptions veuillez choisir un évènement</p>
                 </div>
             </div>
         </div>
