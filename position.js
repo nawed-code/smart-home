@@ -21,6 +21,7 @@ date.textContent= dateAujo;
 const apiKey = "2a9c5a7f19fdf0b8318cbfdc1cecaa41";
 
 /*@@@@@@@@@@@@@    Info sur la ville  @@@@@@@@@@@@@@@*/
+let dataNews;
 btn.addEventListener("click",information);
 function information(){
     let value = input.value.trim();
@@ -62,7 +63,8 @@ function information(){
 
                             /*@@@@@@@@@@@@@    News API   @@@@@@@@@@@@@@@*/
 
-        let newsUrl = `https://gnews.io/api/v4/search?q=${value}&lang=fr&token=${newsApiKey}`;
+        
+        let newsUrl = `http://localhost:3000/news?city=${value}`;  // appel à serveur de smartHome
         let newsRequete = new XMLHttpRequest();
         newsRequete.open("GET",newsUrl,true);
         newsRequete.addEventListener("load",()=>{
@@ -70,7 +72,10 @@ function information(){
             //console.log("news réponse :", newsRequete.response);
             if(newsRequete.status === 200){
                 console.log("status de réponse : ",newsRequete.status);
-                console.log("news réponse :", newsRequete.response);
+                
+                dataNews = newsRequete.response;
+                console.log("dataNews :", dataNews);
+                cityEvent();
             }
             else{
                 console.log(`Erreur : ${newsRequete.status}`);
@@ -101,6 +106,32 @@ let marker = L.marker([lat, lon])
     /*@@@@@@@@@@@@@    Actualité   @@@@@@@@@@@@@@@*/
 
 const newsApiKey = "08c763381c0cd324500c7b710d1f73a4";       // apikey de Gnewsapi 
-const tecketMasterApiKey = "";
+
+let actualite = document.getElementById("actualite");
+let parEvenement = document.querySelector("#evenement p");
+
+function cityEvent(){
+
+    console.log("salut cityevent");
+    let ul = document.createElement("ul");
+    for(let i = 0; i < dataNews.articles.length ; i++){
+
+        console.log("hi ");
+        let li = document.createElement("li");
+        li.dataset.id= i;
+        //console.log("dataset id:",li.dataset.id);
+        li.addEventListener("click",description);
+        li.textContent = dataNews.articles[i].title;
+        ul.appendChild(li);
+    }
+    actualite.appendChild(ul);
+}
+
+function description(event){
+    console.log("salut description");
+    console.log("targate id : ",event.currentTarget.dataset.id);
+    let index = event.currentTarget.dataset.id;
+    parEvenement.textContent =  dataNews.articles[index].description;
+}
 
 
