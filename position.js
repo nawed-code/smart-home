@@ -71,10 +71,9 @@ function information(){
             //console.log("status de réponse : ",newsRequete.status);
             //console.log("news réponse :", newsRequete.response);
             if(newsRequete.status === 200){
-                console.log("status de réponse : ",newsRequete.status);
-                
+                //console.log("status de réponse : ",newsRequete.status);
                 dataNews = newsRequete.response;
-                console.log("dataNews :", dataNews);
+                //console.log("dataNews :", dataNews);
                 cityEvent();
             }
             else{
@@ -112,8 +111,11 @@ let parEvenement = document.querySelector("#evenement p");
 
 function cityEvent(){
 
-    console.log("salut cityevent");
-    let ul = document.createElement("ul");
+    //console.log("salut cityevent");
+    while( actualite.children.length > 1){
+        actualite.removeChild(actualite.lastElementChild);
+    }
+    let ol = document.createElement("ol");
     for(let i = 0; i < dataNews.articles.length ; i++){
 
         console.log("hi ");
@@ -122,14 +124,14 @@ function cityEvent(){
         //console.log("dataset id:",li.dataset.id);
         li.addEventListener("click",description);
         li.textContent = dataNews.articles[i].title;
-        ul.appendChild(li);
+        ol.appendChild(li);
     }
-    actualite.appendChild(ul);
+    actualite.appendChild(ol);
 }
 
 function description(event){
-    console.log("salut description");
-    console.log("targate id : ",event.currentTarget.dataset.id);
+    //console.log("salut description");
+    //console.log("targate id : ",event.currentTarget.dataset.id);
     let index = event.currentTarget.dataset.id;
     parEvenement.textContent =  dataNews.articles[index].description;
 }
