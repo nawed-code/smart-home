@@ -11,6 +11,7 @@
             body{
                 margin: 20px;
                 padding: 12px;
+                height: 100vh;
             }
             header{
                 display: flex;
@@ -20,11 +21,80 @@
             #logo{
                 display: flex;
                 align-items: center;
-                justify-content: left;
+                
             }
+            #logo h2{
+                padding: 0px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin-left: 20px;
+            }
+            #logo h4{
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            
             #logo img{
                 width: 50px;
                 border-radius: 50%;
+            }
+            #container{
+                display:grid;
+                grid-template-rows:1fr auto;
+                height:80vh;
+                border:1px solid #ccc;
+                border-radius:10px;
+            }
+            #messages{
+                overflow-y:auto;
+                padding:15px;
+                display:flex;
+                flex-direction:column;
+                gap:10px;
+            }
+            #user-message{
+                align-self:flex-end;
+                max-width:70%;
+                padding:10px;
+                border-radius:15px;
+                background:#dbeafe;
+            }
+            #bot-message{
+                align-self:flex-start;
+                max-width:70%;
+                padding:10px;
+                border-radius:15px;
+                background:#f1f5f9;
+            }
+            #chat-input{
+                display:flex;
+                gap:10px;
+                padding:10px;
+                border-top:1px solid #ccc;
+            }
+            #question{
+                flex:1;
+                padding:12px;
+                border-radius:10px;
+            }
+            #send{
+                width:50px;
+                border:none;
+                border-radius:50%;
+                cursor:pointer;
+            }
+            #setting{
+                position: relative;
+                transition: 0.4s;
+            }
+            #setting-menu{
+                position: absolute;
+                right: 0;
+                top: 100%;
+                display: none;
+            }
+            #setting:hover #setting-menu{
+                display: block;
             }
            
         </style>
@@ -33,19 +103,42 @@
         <header>
             <section id="logo">
                 <img src="image/chatbot-icon.jpg" alt="chatbot-icon">
-                <h4>discuter avec</h4>
-                <h2>Nawed-kp-code</h2>
+                <section>
+                    <h4>discuter avec</h4>
+                    <h2>Nawed</h2>
+                </section>
+                
             </section>
             <section id="setting">
-                <h5><i data-lucide="sliders"></i>setting</h5>
-                <ul>
-                    <li><button>mode</button></li>
-                    <li>size</li>
+                 <button id="setting-btn"> <i class="fa-solid fa-gear"></i></button>
+                <ul id="setting-menu">
+                    <li>Mode sombre</li>
+                    <li>Taille Police</li>
                 </ul>
             </section>
             
         </header>
         <div id="container">
+            
+            <section id="messages">
+                <div id="bot-message">
+                    Bonjour ! Comment puis-je vous aider ?
+                </div>
+                <div id="user-message">
+                    Salut !
+                </div>
+
+            </section>
+
+            <section id="chat-input">
+                <input type="text" id="question" placeholder="Écrivez votre message...">
+
+                <button id="send">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </section>
+
 
         </div>
     </body>
