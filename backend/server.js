@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-
 require("dotenv").config();
 
 const server = express();
@@ -10,7 +9,6 @@ server.use(express.json());
 server.get("/",(req,res)=>{
     res.send("message depuis serveur de smartHome");
 });
-
 server.get("/news",async (req,res)=>{
     const newsApiKey = "08c763381c0cd324500c7b710d1f73a4"; 
     let value = req.query.city;
@@ -27,10 +25,14 @@ server.get("/news",async (req,res)=>{
             message :"Resource introuvable"
         })
     }
-})
-
+});
+const historique = [];
 server.post("/chatbot" , async (req,res)=>{
     const question = req.body.question;
+    historique.push({
+        role : "user",
+        content : question
+    });
     try{
         
         let reponse = await fetch("http://localhost:11434/api/chat",{
@@ -40,21 +42,19 @@ server.post("/chatbot" , async (req,res)=>{
             },
             body:JSON.stringify({
                 model : "llama3.2",
-                messages: [
-                    {
-                        role: "user",
-                        content: question
-                    }
-                ],
+                messages:historique,
                 stream : false
             })
         });
         let data = await reponse.json();
         console.log("réponse reçu de server : ", data);
+        historique.push(data.message);
+        console.log("contenu d'historique : ",historique);
+        
+
         res.status(200).json({
             answer : data.message.content
         });
-
     }
     catch(error){
         console.log(error);
@@ -64,8 +64,6 @@ server.post("/chatbot" , async (req,res)=>{
     }
     
 });
-
-
 
 server.listen(3000,()=>{
     console.log("Serveur vient de demarrer");
