@@ -5,6 +5,7 @@ console.log("salut depuis chatBot.js");
 let input = document.getElementById("question");
 let textBtn = document.getElementById("send");
 let messages = document.getElementById("messages");
+let container = document.getElementById("container");
 
 textBtn.addEventListener("click",sendMessages);
 input.addEventListener("keydown",(event)=>{
@@ -24,12 +25,16 @@ function sendMessages(){
     messages.appendChild(div);
     botMessages(value);
     input.value ="";
+    messages.scrollTop = messages.scrollHeight;    // défillement automatique 
     
 }
 
 function botMessages(message){
     let div = document.createElement("div");
     div.className = "bot-message";
+    div.textContent = "🤖 Nawed est en train d'écrire...";
+    messages.scrollTop = messages.scrollHeight;    // défillement automatique 
+    messages.appendChild(div);
 
     let chatRequete = new XMLHttpRequest();
     chatRequete.open("POST", "http://localhost:3000/chatbot",true);
@@ -42,7 +47,8 @@ function botMessages(message){
                 //console.log(data.answer);
             div.textContent = data.answer;
             messages.appendChild(div);
-        }
+            messages.scrollTop = messages.scrollHeight;   // défillement automatique
+         }
         else{
             console.log(`erreur : ${chatRequete.status}`);
         }
