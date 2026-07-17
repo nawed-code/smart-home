@@ -5,14 +5,20 @@ console.log("salut depuis chatBot.js");
 let input = document.getElementById("question");
 let textBtn = document.getElementById("send");
 let messages = document.getElementById("messages");
-let container = document.getElementById("container");
+let btnSend = document.getElementById("send");
 
 textBtn.addEventListener("click",sendMessages);
-input.addEventListener("keydown",(event)=>{
+input.addEventListener("keydown",sendByEnter);
+let enCours = false;
+function sendByEnter(event){
     if(event.key === "Enter"){
+        if(enCours){
+            event.preventDefault();
+            return;
+        }
         sendMessages();
     }
-})
+};
 
 function sendMessages(){
     let value = input.value;
@@ -23,17 +29,19 @@ function sendMessages(){
     div.className = "user-message";
     div.textContent = value;
     messages.appendChild(div);
-    botMessages(value);
     input.value ="";
     messages.scrollTop = messages.scrollHeight;    // défillement automatique 
-    
+    btnSend.textContent="...";
+    btnSend.disabled = true;
+    enCours = true;
+    botMessages(value);
 }
 
 function botMessages(message){
     let div = document.createElement("div");
     div.className = "bot-message";
     div.textContent = "🤖 Nawed est en train d'écrire...";
-    messages.scrollTop = messages.scrollHeight;    // défillement automatique 
+    messages.scrollTop = messages.scrollHeight;             // défillement automatique 
     messages.appendChild(div);
 
     let chatRequete = new XMLHttpRequest();
@@ -47,10 +55,17 @@ function botMessages(message){
                 //console.log(data.answer);
             div.textContent = data.answer;
             messages.appendChild(div);
-            messages.scrollTop = messages.scrollHeight;   // défillement automatique
+            messages.scrollTop = messages.scrollHeight;             // défillement automatique
+            btnSend.innerHTML ='<i class="fa-solid fa-paper-plane"></i>';
+            btnSend.disabled = false;
+            enCours = false;
+            
          }
         else{
             console.log(`erreur : ${chatRequete.status}`);
+            btnSend.innerHTML ='<i class="fa-solid fa-paper-plane"></i>';
+            btnSend.disabled = false;
+            enCours = false;
         }
     });
 
