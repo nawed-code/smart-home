@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Chatbot</title>
+        <meta author="nawed-kp-code">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <script src="chatbot_js/chatBot.js" defer></script>
+        <script src="theme.js" defer></script>
+        <style>
+            .dark-theme{
+                background-color: black;
+                color: white;
+            }
+            body{
+                margin: 20px;
+                padding: 12px;
+                height: 100vh;
+            }
+            header{
+                display: flex;
+                align-items: center;
+                justify-content:space-between;
+                margin-bottom: 24px;
+            }
+            #logo{
+                display: flex;
+                align-items: center;
+                
+            }
+            #logo h2{
+                padding: 0px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin-left: 20px;
+            }
+            #logo h4{
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            
+            #logo img{
+                width: 50px;
+                border-radius: 50%;
+            }
+            #container{
+                display:grid;
+                grid-template-rows:1fr auto;
+                height:80vh;
+                overflow: auto;
+                border:1px solid #ccc;
+                border-radius:10px;
+            }
+            #messages{
+                min-height: 0;
+                overflow-y:auto;
+                
+                padding:15px;
+                display:flex;
+                flex-direction:column;
+                gap:10px;
+            }
+            .user-message{
+                align-self:flex-end;
+                max-width:70%;
+                padding:10px;
+                border-radius:15px;
+                background:#dbeafe;
+            }
+            .bot-message{
+                align-self:flex-start;
+                max-width:70%;
+                padding:10px;
+                border-radius:15px;
+                background:#f1f5f9;
+            }
+            #chat-input{
+                display:flex;
+                gap:10px;
+                padding:10px;
+                border-top:1px solid #ccc;
+            }
+            #question{
+                flex:1;
+                padding:12px;
+                border-radius:10px;
+            }
+            #send{
+                width:50px;
+                border:none;
+                border-radius:50%;
+                cursor:pointer;
+            }
+            #setting{
+                position: relative;
+                transition: 0.4s;
+            }
+            #setting-menu{
+                position: absolute;
+                right: 0;
+                top: 100%;
+                width: 30px;
+                list-style: none; 
+                display: none;   
+            }
+            #setting-menu a{
+                text-decoration: none;
+            }
+            #setting:hover #setting-menu{
+                
+                display: block;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <header>
+            <section id="logo">
+                <img src="image/chatbot-icon.jpg" alt="chatbot-icon">
+                <section>
+                    <h4>discuter avec</h4>
+                    <h2>Nawed</h2>
+                </section>
+                
+            </section>
+            <section id="setting">
+                 <button id="setting-btn"> <i class="fa-solid fa-gear"></i></button>
+                <ul id="setting-menu">
+                    <li><a href="#">Mode sombre</a></li>
+                    <li><a href="#">Taille Police</a></li>
+                </ul>
+            </section>
+            
+        </header>
+        <div id="container">
+            
+            <section id="messages">
+                <div class="bot-message">
+                    Bonjour ! pour discuter avec moi, il faut activer Ollama sur cette address : http://localhost:11434
+                </div>
+                <div class="user-message">
+                </div>
+
+            </section>
+
+            <section id="chat-input">
+                <input type="text" id="question" placeholder="Écrivez votre message...">
+
+                <button id="send">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </section>
+
+
+        </div>
+    </body>
+</html>

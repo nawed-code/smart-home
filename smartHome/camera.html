@@ -1,0 +1,133 @@
+<!DOCTYPE html >
+<html lang="fr">
+  <head>
+  <title>SmartHome-Camera</title>
+  <meta name="Nawed-code" >
+  <meta charset="UTF-8">
+  <style>
+
+    header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom: 50px;
+    }
+
+    header div{
+      display: flex;
+      align-items: center;
+    }
+
+    #smartHome{
+      justify-content: left;
+      gap: 2px;
+    }
+
+    #surveillance{
+      justify-content: center;
+      gap: 20px;
+    }
+
+    #surveillance img{
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+    }
+
+    #user img,#smartHome img{
+      width: 50px;
+      height: 48px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    
+    #user{
+      justify-content: right;
+      gap: 10px;
+    }
+   
+    #container{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas:"sidebar monitor";
+      gap: 20px;
+    }
+
+    aside{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+
+    .information{
+      border: solid 1px black;
+      border-radius: 4px;
+      padding: 12px;
+    }
+
+    #searche input{
+      margin-top: 8px;
+      margin-right: 10px;
+    }
+
+    #monitor img{
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+                /*$$$$$$$ Mode sombre $$$$$$$$*/
+    .dark-theme{
+      background-color: black;
+      color: white;
+    }
+    body.dark-theme 
+    #searche,
+    #monitor,
+    #details{
+      border: solid 0.4px green;
+      border-radius: 12px;
+    }
+    body.dark-theme #surveillance img{
+      display:none;
+    }
+
+
+
+  </style>
+  <script src="camera_js/camera.js" defer></script>
+  <script src="theme.js" defer ></script>
+  </head>
+  <body>
+    <header>
+      <div id="smartHome">
+        <img src="image/smart-house.png" alt="smarthome-logo">
+        <h5>SmartHome</h5>
+      </div>
+      <div id="surveillance">
+        <h1>Vidéo surveillance</h1>
+        <img src="image/cctv.png" alt="cctv">
+      </div>
+      <div id="user">
+        <a href="#"><img src="image/bell-icon.jpg" alt="cloche-logo"> </a>
+        <a href="#"><img src="image/profile1.png" alt="user-logo"> </a>
+      </div>
+    </header>
+    <div id="container">
+      <aside>
+        <div id="searche" class="information">
+          <label >Veuillez écrire le nom de pièce: </label>
+          <input type="text" name="text" placeholder="Nom de pièce" value="">
+          <button>Chercher</button>
+          <span id="error"></span>
+        </div>
+        <div id="details" class="information">
+          <p>Ici vous voyez les détails de chaque pièce </p>
+        </div>
+      </aside>
+      <div id="monitor">
+        <img src="image/jardin.png" alt="" >
+      </div>
+    </div>
+  </body>
+</html>
