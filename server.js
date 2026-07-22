@@ -10,7 +10,7 @@ server.get("/",(req,res)=>{
     res.send("message depuis serveur de smartHome");
 });
 server.get("/news",async (req,res)=>{
-    const newsApiKey = "08c763381c0cd324500c7b710d1f73a4"; 
+    const newsApiKey = process.env.GNEWS_API_KEY;
     let value = req.query.city;
     const gnewsUrl = `https://gnews.io/api/v4/search?q=${value}&lang=fr&token=${newsApiKey}`;
     try{
@@ -71,5 +71,5 @@ server.post("/chatbot" , async (req,res)=>{
 
 server.listen(3000,()=>{
     console.log("Serveur vient de demarrer");
-    console.log(process.env.GNEWS_API_KEY);
+    //console.log(process.env.GNEWS_API_KEY);
 });
