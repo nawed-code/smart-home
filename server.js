@@ -9,6 +9,9 @@ server.use(express.static("smartHome"));
 server.get("/",(req,res)=>{
     res.send("message depuis serveur de smartHome");
 });
+
+                            // requête du Gnews pour la partie évènement et 
+
 server.get("/news",async (req,res)=>{
     const newsApiKey = process.env.GNEWS_API_KEY;
     let value = req.query.city;
@@ -26,6 +29,9 @@ server.get("/news",async (req,res)=>{
         })
     }
 });
+
+                            // requête du chatBot 
+
 const historique = [];
 historique.push({
         role: "system",
@@ -53,7 +59,7 @@ server.post("/chatbot" , async (req,res)=>{
         let data = await reponse.json();
         //console.log("réponse reçu de server : ", data);
         historique.push(data.message);
-        //console.log("contenu d'historique : ",historique);
+        console.log("réponse reçu depuis Ollam");
         
 
         res.status(200).json({
@@ -61,7 +67,7 @@ server.post("/chatbot" , async (req,res)=>{
         });
     }
     catch(error){
-        console.log(error);
+        console.log("l'erreur de la requête chatbot :",error);
         res.status(500).json({
             erreur : "Ollama ne répond pas"
         });
@@ -69,7 +75,28 @@ server.post("/chatbot" , async (req,res)=>{
     
 });
 
+                                // requête pour OpenWeatherMap
+                                
+server.get("/position",async (req,res)=>{
+    const value = req.query.ville;
+    //console.log("ville depuis openweather :",value);
+    const apiKey = process.env.OPEN_WEATHER_MAP_API_KEY;
+    const url =`https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${apiKey}&units=metric&lang=fr`;
+    try{
+        let response = await fetch(url);
+        let data = await response.json();
+        console.log("réponse reçu depuis openWeatherMap ");
+        res.status(200).send(data);
+    }
+    catch(error){
+        console.log("l'erreur de de la requête OpenWeatherMap : ",error);
+        res.sendStatus(404).json({
+            response : "resource introuvable"
+        })
+    }
+})
+
 server.listen(3000,()=>{
-    console.log("Serveur vient de demarrer");
+    console.log("Serveur vient de demarrer sur le port 3000");
     //console.log(process.env.GNEWS_API_KEY);
 });

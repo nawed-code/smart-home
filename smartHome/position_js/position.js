@@ -18,8 +18,6 @@ let lon = -0.3707;
 let dateAujo = new Date().toLocaleDateString();
 date.textContent= dateAujo;
 
-const apiKey = "2a9c5a7f19fdf0b8318cbfdc1cecaa41";
-
 /*@@@@@@@@@@@@@    Info sur la ville  @@@@@@@@@@@@@@@*/
 let dataNews;
 btn.addEventListener("click",information);
@@ -34,7 +32,7 @@ function information(){
     else{
         erreur.textContent="";
         ville.textContent=value;
-        let url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${apiKey}&units=metric&lang=fr`;
+        let url = `http://localhost:3000/position?ville=${value}`;
         let requet = new XMLHttpRequest();
         requet.open("GET",url,true);
         requet.addEventListener("load",()=>{
