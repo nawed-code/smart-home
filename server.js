@@ -53,31 +53,29 @@ server.post("/chatbot" , async (req,res)=>{
             body:JSON.stringify({
                 model : "llama3.2",
                 messages:historique,
-                stream : false
+                stream : true
             })
         });
         //let data = await reponse.json();
 
-                            // pour avoir la réponse en flux (streaming)
-
+                                    // pour avoir la réponse en flux (streaming)
 
         let reader = reponse.body.getReader();  // body contient le flux mais flux ne peut pas être lu directement => on utilise d'un reader(getReader)
         let decoder = new TextDecoder();
         while(true){
-
-            const {value,done} = await reader.read();  // Donne-moi le prochain morceau, qui contient value = text et done = boolien
+            const{value,done} = await reader.read();  // Donne-moi le prochain morceau, qui contient value = text et done = boolien
             if(done){
                 console.log("Fin de stream");
                 break;
             }
             let chunk = decoder.decode(value); // value est en format Uint8Array en octet on utilise de TextDecoder() pour le convertir en text
-            console.log("chunk :" , chunk.message);
-            console.log("réponse :",chunk);
         }
+
+
+
         historique.push(data.message);
         console.log("réponse reçu depuis Ollam");
         
-
         res.status(200).json({
             answer : data.message.content
         });
