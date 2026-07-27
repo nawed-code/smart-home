@@ -58,31 +58,32 @@ server.post("/chatbot" , async (req,res)=>{
         });
 
                                     // pour avoir la réponse en flux (streaming)
+                                    
         res.setHeader("Content-Type", "text/plain; charset=utf-8");    // La réponse sera du texte.
         res.setHeader("Transfer-Encoding", "chunked");      // le navigateur comprend qu'il va recevoire plusieurs morceau
         
         let reader = reponse.body.getReader();  // body contient le flux mais flux ne peut pas être lu directement => on utilise d'un reader(getReader)
         let decoder = new TextDecoder();
+        let reponseComplet ="";
         while(true){
             const{value,done} = await reader.read();  // il nous donne le prochain morceau, qui contient value = text et done = boolien
             if(done){
-                console.log("Fin de stream");
+                //console.log("Fin de stream");
+                historique.push({
+                    role:"system",
+                    content:reponseComplet
+                })
                 break;
             }
             let chunk = decoder.decode(value); // value est en format Uint8Array en octet on utilise de TextDecoder() pour le convertir en text
+            
+            let obj = JSON.parse(chunk);
+            reponseComplet += obj.message.content;
             res.write(chunk);               //Envoie immédiatement ce morceau et La connexion reste ouverte.
         }
         res.end()        //fin de connexion avec le navigateur 
 
 
-        /*
-        historique.push(data.message);
-        console.log("réponse reçu depuis Ollam");
-        
-        res.status(200).json({
-            answer : data.message.content
-        });
-        */
     }
     catch(error){
         console.log("l'erreur de la requête chatbot :",error);
