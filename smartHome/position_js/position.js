@@ -21,6 +21,11 @@ date.textContent= dateAujo;
 /*@@@@@@@@@@@@@    Info sur la ville  @@@@@@@@@@@@@@@*/
 let dataNews;
 btn.addEventListener("click",information);
+input.addEventListener("keydown",(event)=>{
+    if(event.key ==="Enter"){
+        information();
+    }
+})
 function information(){
     let value = input.value.trim();
     if(!value || value ===""){
